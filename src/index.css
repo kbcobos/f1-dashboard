@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --f1red: #E10600;
+  --f1dark: #15151E;
+  --f1darker: #0D0D13;
+  --f1gray: #38383F;
+  --f1border: #2A2A35;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--f1darker);
+  color: #ffffff;
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--f1darker); }
+::-webkit-scrollbar-thumb { background: var(--f1gray); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--f1red); }
+
+.f1-accent-line {
+  position: relative;
+}
+.f1-accent-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--f1red);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease both;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1e1e2a 25%, #2a2a38 50%, #1e1e2a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 4px;
+}
+
+.standings-row {
+  transition: background 0.15s ease;
+}
+.standings-row:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.team-bar {
+  width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.tab-btn {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--f1red);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.tab-btn.active {
+  color: #ffffff;
+}
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.pos-1 { color: #FFD700; }
+.pos-2 { color: #C0C0C0; }
+.pos-3 { color: #CD7F32; }
+
+.flag { font-size: 1.1em; }
+
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--f1border);
+  font-weight: 600;
+}
+.data-table td {
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.92rem;
+}
