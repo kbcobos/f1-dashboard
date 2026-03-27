@@ -39,7 +39,7 @@ export default function Navbar({ activeTab, onTabChange, lang, onLangToggle }) {
           </div>
         </div>
 
-        <nav className="flex gap-1 -mb-px overflow-x-auto">
+        <nav className="flex gap-1 -mb-px">
           {tabs.map((tab) => (
             <button
               key={tab.id}
