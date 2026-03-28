@@ -37,7 +37,7 @@ function DRSBadge({ value }) {
       fontSize: 9, fontFamily: 'Barlow Condensed', fontWeight: 700,
       padding: '1px 5px', borderRadius: 3, letterSpacing: '0.05em',
       background: active ? '#00aa4422' : eligible ? '#ffaa0022' : '#1A1A25',
-      color: active ? '#00dd55' : eligible ? '#ffaa00' : '#444',
+      color: active ? '#00dd55' : eligible ? '#ffaa00' : '#888',
       border: `1px solid ${active ? '#00aa44' : eligible ? '#ffaa00' : '#2A2A35'}`,
     }}>DRS</div>
   )
@@ -107,7 +107,7 @@ function NextRaceCard({ lang }) {
 
       <div className="flex items-center justify-center gap-2 mb-6">
         <div className="h-px flex-1" style={{ background: '#2A2A35', maxWidth: 80 }} />
-        <span className="font-barlow font-bold text-xs uppercase tracking-widest" style={{ color: '#E10600' }}>
+        <span className="font-barlow font-bold text-xs uppercase tracking-widest" style={{ color: '#ff6b6b' }}>
           {lang === 'es' ? 'Próxima Carrera' : 'Next Race'}
         </span>
         <div className="h-px flex-1" style={{ background: '#2A2A35', maxWidth: 80 }} />
@@ -118,10 +118,10 @@ function NextRaceCard({ lang }) {
         {next.raceName.replace('Grand Prix', 'GP')}
       </div>
 
-      <div className="font-body text-sm mb-10" style={{ color: '#555' }}>
+      <div className="font-body text-sm mb-10" style={{ color: '#999' }}>
         {next.Circuit?.circuitName} · {next.Circuit?.Location?.country}
       </div>
-      <div className="font-barlow text-sm mb-10 capitalize" style={{ color: '#666' }}>
+      <div className="font-barlow text-sm mb-10 capitalize" style={{ color: '#999' }}>
         {dateStr}
       </div>
 
@@ -144,7 +144,7 @@ function NextRaceCard({ lang }) {
                 {String(value).padStart(2, '0')}
               </span>
               <span className="font-barlow font-semibold uppercase tracking-widest"
-                style={{ fontSize: '0.65rem', color: '#555' }}>
+                style={{ fontSize: '0.75rem', color: '#999' }}>
                 {label}
               </span>
             </div>
@@ -157,7 +157,7 @@ function NextRaceCard({ lang }) {
 
       <div className="mt-8">
         <span className="font-barlow font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider"
-          style={{ background: '#E1060015', color: '#E10600', border: '1px solid #E1060030' }}>
+          style={{ background: '#E1060015', color: '#ff4444', border: '1px solid #ff444460' }}>
           {lang === 'es' ? `Ronda ${next.round} de 22` : `Round ${next.round} of 22`}
         </span>
       </div>
@@ -178,7 +178,7 @@ export default function LiveDashboard({ lang }) {
         <SectionHeader lang={lang} />
         <div className="flex items-center justify-center py-20 gap-3">
           <div className="w-5 h-5 rounded-full border-2 border-gray-600 border-t-red-600 animate-spin" />
-          <span className="font-body text-sm text-gray-500">
+          <span className="font-body text-sm text-gray-400">
             {lang === 'es' ? 'Conectando con OpenF1...' : 'Connecting to OpenF1...'}
           </span>
         </div>
@@ -199,13 +199,13 @@ export default function LiveDashboard({ lang }) {
               <p className="font-barlow font-bold text-sm text-white mb-1">
                 {lang === 'es' ? 'Sin sesión activa' : 'No active session'}
               </p>
-              <p className="font-body text-xs text-gray-500 leading-relaxed">
+              <p className="font-body text-xs text-gray-400 leading-relaxed">
                 {lang === 'es'
                   ? 'El timing en vivo se activa automáticamente cuando hay una sesión de F1 en curso (práctica, clasificación o carrera). Los datos se actualizan cada 5 segundos vía OpenF1 API.'
                   : 'Live timing activates automatically when an F1 session is in progress (practice, qualifying or race). Data updates every 5 seconds via OpenF1 API.'}
               </p>
               {session && (
-                <p className="font-body text-xs mt-2" style={{ color: '#555' }}>
+                <p className="font-body text-xs mt-2" style={{ color: '#999' }}>
                   {lang === 'es' ? 'Última sesión:' : 'Last session:'}{' '}
                   <span style={{ color: '#888' }}>{session.session_name} — {session.meeting_name}</span>
                 </p>
@@ -247,7 +247,7 @@ function SectionHeader({ lang, session, live, lastUpdate }) {
               </div>
             )}
           </div>
-          <p className="text-xs text-gray-500 font-body mt-0.5">
+          <p className="text-xs text-gray-400 font-body mt-0.5">
             {session
               ? `${session.session_name} · ${session.meeting_name}`
               : lang === 'es' ? 'Sin sesión activa' : 'No active session'}
@@ -255,7 +255,7 @@ function SectionHeader({ lang, session, live, lastUpdate }) {
         </div>
       </div>
       {lastUpdate && (
-        <span className="font-body text-xs" style={{ color: '#555' }}>
+        <span className="font-body text-xs" style={{ color: '#999' }}>
           {lang === 'es' ? 'Actualizado:' : 'Updated:'}{' '}
           {lastUpdate.toLocaleTimeString()}
         </span>
@@ -281,7 +281,7 @@ function WeatherStrip({ weather, lang }) {
           <span className="text-sm">{icon}</span>
           <div>
             <div className="font-barlow font-bold text-sm text-white">{value}</div>
-            <div className="font-body text-xs" style={{ color: '#555' }}>{label}</div>
+            <div className="font-body text-xs" style={{ color: '#999' }}>{label}</div>
           </div>
           <div className="w-px h-6 mx-1" style={{ background: '#2A2A35' }} />
         </div>
@@ -323,7 +323,7 @@ function RaceControlPanel({ messages, lang }) {
                   <p className="font-body text-xs leading-relaxed" style={{ color: flagStyle.color }}>
                     {msg.message}
                   </p>
-                  <p className="font-barlow text-xs mt-0.5" style={{ color: '#444' }}>
+                  <p className="font-barlow text-xs mt-0.5" style={{ color: '#888' }}>
                     {msg.category} · {new Date(msg.date).toLocaleTimeString()}
                   </p>
                 </div>
@@ -342,7 +342,7 @@ function LiveLeaderboard({ drivers, lang }) {
       <div className="text-center py-12"
         style={{ background: '#15151E', border: '1px solid #2A2A35', borderRadius: 12 }}>
         <div className="inline-block w-6 h-6 rounded-full border-2 border-gray-600 border-t-red-600 animate-spin mb-3" />
-        <p className="font-body text-sm text-gray-500">
+        <p className="font-body text-sm text-gray-400">
           {lang === 'es' ? 'Esperando datos de posición...' : 'Waiting for position data...'}
         </p>
       </div>
@@ -397,7 +397,7 @@ function LiveLeaderboard({ drivers, lang }) {
                       <div style={{ fontFamily: 'Barlow Condensed', fontSize: '0.88rem', color: '#fff' }}>
                         {firstName} <strong style={{ fontWeight: 900 }}>{lastName.toUpperCase()}</strong>
                       </div>
-                      <div style={{ fontFamily: 'Barlow', fontSize: '0.7rem', color: '#555' }}>
+                      <div style={{ fontFamily: 'Barlow', fontSize: '0.7rem', color: '#999' }}>
                         #{d.driver_number}
                       </div>
                     </div>
@@ -421,7 +421,7 @@ function LiveLeaderboard({ drivers, lang }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                     <TireCircle compound={d.compound} />
                     {d.tyre_age != null && (
-                      <span style={{ fontFamily: 'Barlow', fontSize: '0.72rem', color: '#555' }}>
+                      <span style={{ fontFamily: 'Barlow', fontSize: '0.72rem', color: '#999' }}>
                         L{d.tyre_age}
                       </span>
                     )}
@@ -431,7 +431,7 @@ function LiveLeaderboard({ drivers, lang }) {
                   <DRSBadge value={d.drs} />
                 </td>
                 <td style={{ padding: '10px 12px' }} className="hidden md:table-cell">
-                  <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.82rem', color: d.pit_count > 0 ? '#ccc' : '#444' }}>
+                  <span style={{ fontFamily: 'Barlow Condensed', fontSize: '0.82rem', color: d.pit_count > 0 ? '#ccc' : '#888' }}>
                     {d.pit_count > 0 ? `${d.pit_count}x` : '—'}
                   </span>
                 </td>

@@ -62,7 +62,7 @@ export default function HelpPage({ lang }) {
             {t(lang, 'help_title')}
           </h1>
         </div>
-        <p className="font-body text-sm ml-4" style={{ color: '#666', lineHeight: 1.7 }}>
+        <p className="font-body text-sm ml-4" style={{ color: '#999', lineHeight: 1.7 }}>
           {t(lang, 'help_intro')}
         </p>
       </div>
@@ -73,7 +73,7 @@ export default function HelpPage({ lang }) {
         </p>
 
         <div className="mt-4">
-          <p className="font-barlow font-semibold text-xs uppercase tracking-wider mb-3" style={{ color: '#555' }}>
+          <p className="font-barlow font-semibold text-xs uppercase tracking-wider mb-3" style={{ color: '#999' }}>
             {t(lang, 'help_medals_title')}
           </p>
           <div className="flex flex-col gap-2">
@@ -178,7 +178,7 @@ export default function HelpPage({ lang }) {
           className="mt-4 rounded-lg p-4"
           style={{ background: '#0D0D13', border: '1px solid #2A2A35' }}
         >
-          <p className="font-barlow font-semibold text-xs uppercase tracking-wider mb-3" style={{ color: '#555' }}>
+          <p className="font-barlow font-semibold text-xs uppercase tracking-wider mb-3" style={{ color: '#999' }}>
             Endpoints
           </p>
           {[
@@ -220,7 +220,7 @@ export default function HelpPage({ lang }) {
         <p
           className="font-body text-xs rounded-lg p-4"
           style={{
-            color: '#555',
+            color: '#999',
             lineHeight: 1.7,
             background: '#0D0D13',
             border: '1px solid #1A1A25',

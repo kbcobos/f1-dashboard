@@ -66,12 +66,12 @@ export default function DriversStandings({ lang }) {
         <div className="h-8 w-1 rounded-full" style={{ background: '#E10600' }} />
         <div>
           <h2 className="font-barlow font-bold text-xl text-white uppercase tracking-wide">{t(lang, 'drivers_title')}</h2>
-          <p className="text-xs text-gray-500 font-body mt-0.5">{t(lang, 'drivers_subtitle')}</p>
+          <p className="text-xs text-gray-400 font-body mt-0.5">{t(lang, 'drivers_subtitle')}</p>
         </div>
       </div>
 
       {error && (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-400">
           <div className="text-3xl mb-2">⚠️</div>
           <p className="font-body text-sm">{t(lang, 'load_error')}</p>
         </div>
@@ -111,7 +111,7 @@ export default function DriversStandings({ lang }) {
                                 {entry.Driver.givenName} <strong className="font-black">{entry.Driver.familyName.toUpperCase()}</strong>
                               </span>
                             </div>
-                            <div className="text-xs text-gray-500 mt-0.5 font-body">#{entry.Driver.permanentNumber || '—'}</div>
+                            <div className="text-xs text-gray-400 mt-0.5 font-body">#{entry.Driver.permanentNumber || '—'}</div>
                           </div>
                         </div>
                       </td>
@@ -125,7 +125,7 @@ export default function DriversStandings({ lang }) {
                         <PointsBar points={parseFloat(entry.points)} maxPoints={maxPoints} />
                       </td>
                       <td className="px-3 py-3 hidden sm:table-cell">
-                        <span className="font-barlow font-bold text-sm" style={{ color: wins > 0 ? '#FFD700' : '#555' }}>
+                        <span className="font-barlow font-bold text-sm" style={{ color: wins > 0 ? '#FFD700' : '#999' }}>
                           {wins > 0 ? wins : '—'}
                         </span>
                       </td>
@@ -135,7 +135,7 @@ export default function DriversStandings({ lang }) {
           </tbody>
         </table>
         {!loading && (!data || data.length === 0) && !error && (
-          <div className="text-center py-12 text-gray-500">
+          <div className="text-center py-12 text-gray-400">
             <div className="text-3xl mb-2">🏁</div>
             <p className="font-body text-sm">{t(lang, 'no_data')}</p>
           </div>

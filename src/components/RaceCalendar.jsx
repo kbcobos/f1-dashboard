@@ -20,7 +20,7 @@ function RaceResultsPanel({ season, round, raceName, onClose, lang }) {
           </span>
         </div>
         <button onClick={onClose}
-          className="text-gray-500 hover:text-white transition-colors font-barlow text-lg leading-none px-1">
+          className="text-gray-400 hover:text-white transition-colors font-barlow text-lg leading-none px-1">
           ✕
         </button>
       </div>
@@ -28,7 +28,7 @@ function RaceResultsPanel({ season, round, raceName, onClose, lang }) {
       {loading && (
         <div className="py-8 text-center">
           <div className="inline-block w-5 h-5 rounded-full border-2 border-gray-600 border-t-red-600 animate-spin" />
-          <p className="text-gray-500 text-xs mt-2 font-body">{t(lang, 'results_loading')}</p>
+          <p className="text-gray-400 text-xs mt-2 font-body">{t(lang, 'results_loading')}</p>
         </div>
       )}
 
@@ -84,7 +84,7 @@ function RaceResultsPanel({ season, round, raceName, onClose, lang }) {
                   </td>
                   <td className="px-3 py-2.5 hidden sm:table-cell">
                     <span className="font-barlow font-bold text-sm"
-                      style={{ color: parseInt(result.points) > 0 ? '#fff' : '#555' }}>
+                      style={{ color: parseInt(result.points) > 0 ? '#fff' : '#999' }}>
                       {result.points}
                     </span>
                   </td>
@@ -96,7 +96,7 @@ function RaceResultsPanel({ season, round, raceName, onClose, lang }) {
       )}
 
       {!loading && (!data || data.length === 0) && (
-        <div className="py-8 text-center text-gray-500">
+        <div className="py-8 text-center text-gray-400">
           <div className="text-2xl mb-2">🏁</div>
           <p className="font-body text-sm">{t(lang, 'results_unavailable')}</p>
         </div>
@@ -142,7 +142,7 @@ function RaceCard({ race, isNext, isPast, onClick, isSelected, lang }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 mb-0.5">
             <span className="text-sm">{flag}</span>
-            <span className="font-body text-xs text-gray-500 truncate">
+            <span className="font-body text-xs text-gray-400 truncate">
               {t(lang, 'race_round')} {race.round} · {country}
             </span>
           </div>
@@ -203,7 +203,7 @@ export default function RaceCalendar({ lang }) {
           <div className="h-8 w-1 rounded-full" style={{ background: '#E10600' }} />
           <div>
             <h2 className="font-barlow font-bold text-xl text-white uppercase tracking-wide">{t(lang, 'calendar_title')}</h2>
-            <p className="text-xs text-gray-500 font-body mt-0.5">
+            <p className="text-xs text-gray-400 font-body mt-0.5">
               {races ? `${races.length} ${t(lang, 'calendar_subtitle_races')}` : '...'}
             </p>
           </div>
@@ -225,7 +225,7 @@ export default function RaceCalendar({ lang }) {
       </div>
 
       {error && (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-400">
           <div className="text-3xl mb-2">⚠️</div>
           <p className="font-body text-sm">{t(lang, 'calendar_load_error')}</p>
         </div>

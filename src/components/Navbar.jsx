@@ -18,7 +18,7 @@ export default function Navbar({ activeTab, onTabChange, lang, onLangToggle }) {
               F<span style={{ color: '#E10600' }}>1</span>
             </div>
             <div className="h-6 w-px bg-gray-600" />
-            <span className="font-barlow font-semibold text-sm text-gray-300 uppercase tracking-widest">
+            <span className="font-barlow font-semibold text-sm text-gray-400 uppercase tracking-widest">
               Dashboard
             </span>
           </div>
@@ -45,7 +45,7 @@ export default function Navbar({ activeTab, onTabChange, lang, onLangToggle }) {
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
               className={`tab-btn px-4 py-2 font-barlow font-semibold text-sm uppercase tracking-wider transition-colors whitespace-nowrap ${
-                activeTab === tab.id ? 'active text-white' : 'text-gray-500 hover:text-gray-300'
+                activeTab === tab.id ? 'active text-white' : 'text-gray-400 hover:text-white'
               }`}
               style={tab.id === 'live' ? { position: 'relative' } : {}}
             >
